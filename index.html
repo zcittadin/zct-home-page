@@ -68,6 +68,26 @@
       margin-top: 2rem;
     }
 
+    /* Lista de posts */
+    #post-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    #post-list li {
+      background: #fff;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    #post-list li strong {
+      color: #0070f3;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
     /* Responsividade */
     @media (max-width: 600px) {
       header h1 {
@@ -89,6 +109,7 @@
     <nav>
       <a href="#sobre">Sobre</a>
       <a href="#projetos">Projetos</a>
+      <a href="#posts">Posts</a>
       <a href="#contato">Contato</a>
     </nav>
   </header>
@@ -104,42 +125,47 @@
       <p>Aqui você pode listar alguns projetos, links de interesse ou portfólio.</p>
     </section>
 
+    <section id="posts">
+      <h2>Últimos Posts (via API)</h2>
+      <p>Posts carregados de uma API REST de exemplo:</p>
+      <ul id="post-list">
+        <li>Carregando posts...</li>
+      </ul>
+    </section>
+
     <section id="contato">
       <h2>Contato</h2>
       <p>Você pode adicionar um e-mail, LinkedIn ou até um formulário de contato.</p>
     </section>
-
-    <section id="posts">
-  <h2>Últimos Posts</h2>
-  <ul id="post-list"></ul>
-</section>
-
-<script>
-  async function carregarPosts() {
-    try {
-      const resposta = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5');
-      const posts = await resposta.json();
-
-      const lista = document.getElementById('post-list');
-      posts.forEach(post => {
-        const item = document.createElement('li');
-        item.innerHTML = `<strong>${post.title}</strong><br>${post.body}`;
-        lista.appendChild(item);
-      });
-    } catch (erro) {
-      console.error("Erro ao carregar posts:", erro);
-    }
-  }
-
-  // chama a função ao carregar a página
-  carregarPosts();
-</script>
-
-    
   </main>
 
   <footer>
     <p>&copy; 2025 - Meu Site no GitHub Pages</p>
   </footer>
+
+  <script>
+    async function carregarPosts() {
+      const lista = document.getElementById('post-list');
+      lista.innerHTML = "<li>Carregando posts...</li>";
+
+      try {
+        const resposta = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5');
+        const posts = await resposta.json();
+
+        lista.innerHTML = ""; // limpa lista inicial
+        posts.forEach(post => {
+          const item = document.createElement('li');
+          item.innerHTML = `<strong>${post.title}</strong><br>${post.body}`;
+          lista.appendChild(item);
+        });
+      } catch (erro) {
+        console.error("Erro ao carregar posts:", erro);
+        lista.innerHTML = "<li>Não foi possível carregar os posts.</li>";
+      }
+    }
+
+    // chama a função ao carregar a página
+    carregarPosts();
+  </script>
 </body>
 </html>
