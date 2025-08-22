@@ -108,6 +108,34 @@
       <h2>Contato</h2>
       <p>Você pode adicionar um e-mail, LinkedIn ou até um formulário de contato.</p>
     </section>
+
+    <section id="posts">
+  <h2>Últimos Posts</h2>
+  <ul id="post-list"></ul>
+</section>
+
+<script>
+  async function carregarPosts() {
+    try {
+      const resposta = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5');
+      const posts = await resposta.json();
+
+      const lista = document.getElementById('post-list');
+      posts.forEach(post => {
+        const item = document.createElement('li');
+        item.innerHTML = `<strong>${post.title}</strong><br>${post.body}`;
+        lista.appendChild(item);
+      });
+    } catch (erro) {
+      console.error("Erro ao carregar posts:", erro);
+    }
+  }
+
+  // chama a função ao carregar a página
+  carregarPosts();
+</script>
+
+    
   </main>
 
   <footer>
