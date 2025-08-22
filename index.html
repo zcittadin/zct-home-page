@@ -1,11 +1,117 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>ZCT Main Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Site no GitHub Pages</title>
+  <style>
+    /* Reset simples */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      background: #f4f4f9;
+      color: #333;
+    }
+
+    header {
+      background: #0070f3;
+      color: #fff;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      margin-bottom: 0.5rem;
+      color: #0070f3;
+    }
+
+    footer {
+      background: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    /* Responsividade */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+      nav {
+        display: flex;
+        flex-direction: column;
+      }
+      nav a {
+        margin: 5px 0;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>Online and running! 🚀</h1>
-    <p>First test on GitHub Pages.</p>
+  <header>
+    <h1>Bem-vindo ao Meu Site 🚀</h1>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="sobre">
+      <h2>Sobre</h2>
+      <p>Este é um site de exemplo criado com GitHub Pages. Aqui você pode apresentar informações sobre você ou sua ideia.</p>
+    </section>
+
+    <section id="projetos">
+      <h2>Projetos</h2>
+      <p>Aqui você pode listar alguns projetos, links de interesse ou portfólio.</p>
+    </section>
+
+    <section id="contato">
+      <h2>Contato</h2>
+      <p>Você pode adicionar um e-mail, LinkedIn ou até um formulário de contato.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Meu Site no GitHub Pages</p>
+  </footer>
 </body>
 </html>
